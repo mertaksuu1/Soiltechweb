@@ -1,10 +1,16 @@
+import eylulMarinLogo from "@assets/eylul-marin_1760193505977.png";
+import microtechLogo from "@assets/Microtech_1760193505978.webp";
+import mikronBoyaLogo from "@assets/stock_images/mikron_boya_company__3672edc7.jpg";
+import tuzlaBoyaLogo from "@assets/tuzla_boya_1760193505979.png";
+import cemreLogo from "@assets/cemre.png_1760193505979.webp";
+
 export function ReferencesSection() {
   const references = [
-    { name: "Referans 1", logo: "https://via.placeholder.com/200x60/e5e7eb/6b7280?text=Logo+1" },
-    { name: "Referans 2", logo: "https://via.placeholder.com/200x60/e5e7eb/6b7280?text=Logo+2" },
-    { name: "Referans 3", logo: "https://via.placeholder.com/200x60/e5e7eb/6b7280?text=Logo+3" },
-    { name: "Referans 4", logo: "https://via.placeholder.com/200x60/e5e7eb/6b7280?text=Logo+4" },
-    { name: "Referans 5", logo: "https://via.placeholder.com/200x60/e5e7eb/6b7280?text=Logo+5" },
+    { name: "Eylül Marin", logo: eylulMarinLogo },
+    { name: "Microtech", logo: microtechLogo },
+    { name: "Mikron Boya", logo: mikronBoyaLogo },
+    { name: "Tuzla Boya", logo: tuzlaBoyaLogo },
+    { name: "Cemre", logo: cemreLogo },
   ];
 
   return (
