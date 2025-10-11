@@ -45,12 +45,12 @@ export function HeroSlider({
 
   return (
     <section
-      className="relative min-h-[70vh] flex items-center overflow-hidden"
+      className="relative h-screen flex items-center overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       data-testid="hero-slider"
     >
-      <div className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-[0_0_60px_rgba(14,165,233,0.15)]">
+      <div className="absolute inset-0 overflow-hidden">
         {images.map((image, index) => (
           <div
             key={index}

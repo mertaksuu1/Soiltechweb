@@ -69,7 +69,7 @@ export default function HomePage() {
       <FixedSocialButtons />
       
       <main>
-        <div id="anasayfa" className="container mx-auto px-4 md:px-6 lg:px-8 py-8 scroll-mt-20">
+        <div id="anasayfa" className="scroll-mt-20">
           <HeroSlider
             images={sliderImages}
             onPrimaryAction={handlePrimaryAction}
