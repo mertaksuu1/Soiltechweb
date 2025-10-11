@@ -44,7 +44,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["anasayfa", "hakkimizda", "hizmetler", "referanslar", "iletisim"];
+      const sections = ["anasayfa", "hakkimizda", "hizmetler", "kalite", "referanslar", "iletisim"];
       
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
