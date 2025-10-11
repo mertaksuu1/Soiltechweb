@@ -24,7 +24,6 @@ export function Header({ activeSection = "anasayfa", onNavigate }: HeaderProps) 
     { id: "anasayfa", label: "Ana Sayfa" },
     { id: "hakkimizda", label: "Hakkımızda" },
     { id: "hizmetler", label: "Hizmetler" },
-    { id: "ozel-uygulamalar", label: "Özel Uygulamalar" },
     { id: "referanslar", label: "Referanslar" },
     { id: "iletisim", label: "İletişim" },
   ];

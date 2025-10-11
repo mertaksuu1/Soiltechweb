@@ -9,7 +9,6 @@ interface HeroSliderProps {
   subtitle?: string;
   description?: string;
   onPrimaryAction?: () => void;
-  onSecondaryAction?: () => void;
 }
 
 export function HeroSlider({
@@ -18,7 +17,6 @@ export function HeroSlider({
   subtitle = "Yeni nesil yüzey çözümleri",
   description = "İç ve dış cephe boyaları, ısı yalıtım sistemleri ve dekoratif kaplamalarda uzman ekibimizle yanınızdayız.",
   onPrimaryAction,
-  onSecondaryAction,
 }: HeroSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -94,16 +92,7 @@ export function HeroSlider({
               className="bg-primary hover:bg-primary/90 text-primary-foreground border border-white/30 shadow-lg"
               data-testid="button-primary-action"
             >
-              Kategorileri Gör
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={onSecondaryAction}
-              className="bg-background/20 backdrop-blur-md border-white/30 text-white hover:bg-background/30"
-              data-testid="button-secondary-action"
-            >
-              Keşif Talep Et
+              Hizmetleri Gör
             </Button>
           </div>
         </div>

@@ -3,7 +3,6 @@ import { Header } from "@/components/Header";
 import { HeroSlider } from "@/components/HeroSlider";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
-import { SpecialApplicationsSection } from "@/components/SpecialApplicationsSection";
 import { ReferencesSection } from "@/components/ReferencesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -38,16 +37,12 @@ export default function HomePage() {
   };
 
   const handlePrimaryAction = () => {
-    handleNavigate("ozel-uygulamalar");
-  };
-
-  const handleSecondaryAction = () => {
-    handleNavigate("iletisim");
+    handleNavigate("hizmetler");
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["anasayfa", "hakkimizda", "hizmetler", "ozel-uygulamalar", "referanslar", "iletisim"];
+      const sections = ["anasayfa", "hakkimizda", "hizmetler", "referanslar", "iletisim"];
       
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -74,13 +69,11 @@ export default function HomePage() {
           <HeroSlider
             images={sliderImages}
             onPrimaryAction={handlePrimaryAction}
-            onSecondaryAction={handleSecondaryAction}
           />
         </div>
         
         <AboutSection />
         <ServicesSection />
-        <SpecialApplicationsSection />
         <ReferencesSection />
         <ContactSection />
       </main>
