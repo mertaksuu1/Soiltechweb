@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Instagram, Linkedin, Facebook } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { Link, useLocation } from "wouter";
-import soiltechLogo from "@assets/soiltech-logo_1760198889433.webp";
+import soiltechLogo from "@assets/white-logo_1760199358189.png";
 
 interface HeaderProps {
   activeSection?: string;
