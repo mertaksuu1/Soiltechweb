@@ -62,7 +62,7 @@ export default function MarinHizmetleriPage() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6">
           <img
             src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop"
             alt="Tekne Kaplama"
@@ -82,20 +82,6 @@ export default function MarinHizmetleriPage() {
             data-testid="image-gallery-3"
           />
         </div>
-
-        <Card className="bg-primary/5">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-4">Teklif Almak İster misiniz?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Projeleriniz için ücretsiz keşif ve detaylı teklif almak için bizimle iletişime geçin.
-            </p>
-            <Link href="/#iletisim">
-              <Button size="lg" data-testid="button-contact">
-                İletişime Geç
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
       </main>
 
       <Footer />

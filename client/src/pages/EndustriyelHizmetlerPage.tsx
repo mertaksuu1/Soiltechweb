@@ -114,7 +114,7 @@ export default function EndustriyelHizmetlerPage() {
           />
         </div>
 
-        <section className="mb-12">
+        <section>
           <div className="mb-6">
             <h2 className="text-3xl font-bold mb-3" data-testid="heading-special-services">
               Özel Hizmetler
@@ -140,20 +140,6 @@ export default function EndustriyelHizmetlerPage() {
             ))}
           </div>
         </section>
-
-        <Card className="bg-primary/5">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-semibold mb-4">Teklif Almak İster misiniz?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Projeleriniz için ücretsiz keşif ve detaylı teklif almak için bizimle iletişime geçin.
-            </p>
-            <Link href="/#iletisim">
-              <Button size="lg" data-testid="button-contact">
-                İletişime Geç
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
       </main>
 
       <Footer />
