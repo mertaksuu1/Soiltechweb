@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { SocialButton } from "./SocialButton";
 import soiltechLogo from "@assets/SOILTECH_page-0001_1760196613851.jpg";
 
 interface HeaderProps {
@@ -77,8 +76,6 @@ export function Header({ activeSection = "anasayfa", onNavigate }: HeaderProps) 
           </nav>
 
           <div className="flex items-center gap-2">
-            <SocialButton />
-            
             <Button
               variant="ghost"
               size="icon"
