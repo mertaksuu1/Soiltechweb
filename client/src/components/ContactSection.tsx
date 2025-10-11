@@ -16,14 +16,41 @@ export function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Mesajınız alındı!",
-      description: "En kısa sürede size dönüş yapacağız.",
-    });
-    setFormData({ name: "", phone: "", email: "", message: "" });
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        toast({
+          title: "Mesajınız alındı!",
+          description: "En kısa sürede size dönüş yapacağız.",
+        });
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Hata",
+          description: data.message || "Bir hata oluştu. Lütfen tekrar deneyin.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Form submit error:", error);
+      toast({
+        title: "Hata",
+        description: "Bir hata oluştu. Lütfen tekrar deneyin.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
