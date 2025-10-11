@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { SocialButton } from "./SocialButton";
+import soiltechLogo from "@assets/SOILTECH_page-0001_1760196613851.jpg";
 
 interface HeaderProps {
   activeSection?: string;
@@ -50,13 +51,11 @@ export function Header({ activeSection = "anasayfa", onNavigate }: HeaderProps) 
             className="flex items-center gap-3 hover-elevate rounded-md px-2 py-1 transition-all"
             data-testid="button-logo"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg">
-              ST
-            </div>
-            <div className="hidden sm:block text-left">
-              <div className="text-sm font-bold text-foreground">SOILTECH</div>
-              <div className="text-xs text-muted-foreground">Mühendislik</div>
-            </div>
+            <img 
+              src={soiltechLogo} 
+              alt="SOILTECH Mühendislik" 
+              className="h-10 w-auto object-contain"
+            />
           </button>
 
           <nav className="hidden lg:block" aria-label="Ana menü">
