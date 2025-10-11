@@ -54,7 +54,7 @@ export function Header({ activeSection = "anasayfa", onNavigate }: HeaderProps) 
             <img 
               src={soiltechLogo} 
               alt="SOILTECH Mühendislik" 
-              className="h-14 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </button>
 
