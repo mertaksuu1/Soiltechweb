@@ -49,7 +49,7 @@ export function SocialButton() {
     },
     { 
       icon: SiWhatsapp, 
-      href: "https://wa.me/905XXXXXXXXX", 
+      href: "https://wa.me/905326426899", 
       label: "WhatsApp",
       color: "hover:text-green-600"
     },

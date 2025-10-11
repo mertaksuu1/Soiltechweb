@@ -3,6 +3,8 @@ import { Header } from "@/components/Header";
 import { HeroSlider } from "@/components/HeroSlider";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { QualitySection } from "@/components/QualitySection";
+import { ISOCertificatesSection } from "@/components/ISOCertificatesSection";
 import { ReferencesSection } from "@/components/ReferencesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -74,6 +76,8 @@ export default function HomePage() {
         
         <AboutSection />
         <ServicesSection />
+        <QualitySection />
+        <ISOCertificatesSection />
         <ReferencesSection />
         <ContactSection />
       </main>

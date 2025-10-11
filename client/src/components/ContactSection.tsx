@@ -12,6 +12,7 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     message: "",
   });
 
@@ -22,7 +23,7 @@ export function ContactSection() {
       title: "Mesajınız alındı!",
       description: "En kısa sürede size dönüş yapacağız.",
     });
-    setFormData({ name: "", phone: "", message: "" });
+    setFormData({ name: "", phone: "", email: "", message: "" });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,6 +75,19 @@ export function ContactSection() {
                   </div>
                 </div>
                 <div className="space-y-2">
+                  <Label htmlFor="email">E-posta</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="ornek@mail.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    data-testid="input-email"
+                  />
+                </div>
+                <div className="space-y-2">
                   <Label htmlFor="message">Mesaj</Label>
                   <Textarea
                     id="message"
@@ -96,12 +110,12 @@ export function ContactSection() {
               </form>
               <div className="mt-6 space-y-3">
                 <a
-                  href="tel:+90XXXXXXXXXX"
+                  href="tel:+905326426899"
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="link-phone"
                 >
                   <Phone className="h-4 w-4" />
-                  +90 XXX XXX XX XX
+                  +90 532 642 68 99
                 </a>
                 <a
                   href="mailto:info@soiltech.com"

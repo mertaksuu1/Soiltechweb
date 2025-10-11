@@ -13,9 +13,9 @@ interface HeroSliderProps {
 
 export function HeroSlider({
   images,
-  title = "Profesyonel boya ve kaplama uygulamaları",
-  subtitle = "Yeni nesil yüzey çözümleri",
-  description = "İç ve dış cephe boyaları, ısı yalıtım sistemleri ve dekoratif kaplamalarda uzman ekibimizle yanınızdayız.",
+  title = "Profesyonel Tamir ve Bakım Hizmeti",
+  subtitle = "SOILTECH MÜHENDİSLİK",
+  description = "",
   onPrimaryAction,
 }: HeroSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
