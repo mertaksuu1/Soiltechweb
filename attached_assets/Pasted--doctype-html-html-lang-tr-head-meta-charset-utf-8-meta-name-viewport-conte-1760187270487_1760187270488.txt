@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marka Adı | Ana Sayfa</title>
+  <meta name="description" content="Marka Adı – Boya, yalıtım ve dekorasyon çözümleri için tek sayfa web sitesi şablonu." />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg:#ffffff;--fg:#0f172a;--muted:#e5eefc;--muted-ink:#64748b;--primary:#0ea5e9;--primary-ink:#0b6ea8;--light:#f1f5f9;--border:#e2e8f0;--shadow:0 10px 30px rgba(15,23,42,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--fg);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+
+    .container{max-width:100%;margin-inline:auto;padding:0 16px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--border)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{height:56px;width:auto}
+    nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-weight:600}
+    nav a{opacity:.85;padding:8px 10px;border-radius:10px}
+    nav a.active,nav a:hover{opacity:1;background:var(--light)}
+    .hamburger{display:none;flex-direction:column;gap:4px;border:0;background:transparent}
+    .hamburger span{width:24px;height:2px;background:var(--fg)}
+
+    /* Mobile menu */
+    .mobile{display:none;border-top:1px solid var(--border)}
+    .mobile a{display:block;padding:14px 0;border-bottom:1px solid var(--border)}
+
+    /* =====================
+       HERO – Landing style
+       ===================== */
+    #anasayfa{position:relative;overflow:hidden;border-radius:12px}
+    .hero{min-height:70vh;display:grid;grid-template-columns:1fr;align-items:center;padding:96px 0}
+    /* Slider as background */
+    .slider{position:absolute;inset:0;border-radius:inherit}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity 900ms ease}
+    .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .slide.active{opacity:1}
+    /* dark overlay for readability */
+    #anasayfa::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.35) 40%, rgba(2,6,23,.55));z-index:1}
+
+    /* Hero content on top */
+    .hero-content{position:relative;z-index:2;color:#fff;max-width:880px}
+    .badge{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:rgba(14,165,233,.25);border:1px solid rgba(14,165,233,.5);padding:8px 12px;border-radius:999px;margin-bottom:14px;backdrop-filter:blur(4px)}
+    h1{font-size:48px;line-height:1.1;margin:0 0 14px;text-wrap:balance;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+    .lead{font-size:18px;color:var(--muted);margin:0 0 26px;max-width:70ch;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:var(--primary);color:#fff;font-weight:800;border:1px solid rgba(255,255,255,.3);box-shadow:var(--shadow)}
+    .cta:hover{background:var(--primary-ink)}
+
+    .slider-dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+    .slider-dots button{width:8px;height:8px;border-radius:999px;border:0;background:rgba(255,255,255,.6)}
+    .slider-dots button.active{background:#fff}
+
+    .section{padding:72px 0;scroll-margin-top:84px;border-top:1px solid var(--border)}
+    .section h2{margin:0 0 8px}
+    .section p.section-lead{margin:0 0 26px;color:var(--muted-ink)}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--border);border-radius:16px;padding:18px;background:#fff}
+    .card h3{margin:6px 0 8px}
+    .card p{margin:0;color:var(--muted-ink)}
+    .card img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
+
+    /* Features row */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:18px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(#fff, #fafcff)}
+    .feature strong{display:block;margin-bottom:8px}
+
+    /* References */
+    .logos{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:center}
+    .logos img{max-width:100%;height:40px;object-fit:contain;filter:grayscale(1);opacity:.75}
+
+    /* Contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form .full{grid-column:1/-1}
+    input,textarea{width:100%;padding:14px 12px;border:1px solid var(--border);border-radius:12px;font:inherit}
+    textarea{min-height:140px;resize:vertical}
+    button[type=submit]{padding:12px 16px;border-radius:12px;background:var(--fg);color:#fff;border:0;font-weight:700}
+    button[type=submit]:hover{opacity:.9}
+
+    footer{padding:40px 0;background:#0b1220;color:#cbd5e1;margin-top:40px}
+    footer .foot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+    footer a{color:#cbd5e1}
+
+    /* Sosyal menü (şeffaf/sade) */
+    .social-menu{position:relative;display:flex;align-items:center}
+    .social-trigger{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,0.4);backdrop-filter:blur(8px);color:var(--fg);border:1px solid rgba(15,23,42,.12);font-weight:600}
+    .social-trigger:hover{background:rgba(255,255,255,0.6)}
+    .social-popover{position:absolute;right:0;top:calc(100% + 10px);background:rgba(255,255,255,0.55);backdrop-filter:blur(12px) saturate(140%);border:1px solid rgba(15,23,42,.12);border-radius:14px;box-shadow:var(--shadow);padding:10px;min-width:180px}
+    .social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .social-link{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;border:1px solid rgba(15,23,42,.12);background:rgba(255,255,255,0.5)}
+    .social-link:hover{background:rgba(241,245,249,.8)}
+    .social-link svg{width:22px;height:22px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{min-height:64vh}
+      .grid{grid-template-columns:1fr 1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .logos{grid-template-columns:repeat(3,1fr)}
+      h1{font-size:40px}
+    }
+    @media (max-width: 680px){
+      nav ul{display:none}
+      .hamburger{display:flex}
+      .mobile{display:block}
+      .grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .logos{grid-template-columns:repeat(2,1fr)}
+      form{grid-template-columns:1fr}
+      h1{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container topbar">
+      <a href="#anasayfa" class="brand" aria-label="Ana sayfa">
+        <img src="img/logo.jpeg" alt="Logo" />
+      </a>
+      <nav aria-label="Ana menü">
+        <ul>
+          <li><a href="#anasayfa" data-target="#anasayfa" class="nav">Ana Sayfa</a></li>
+          <li><a href="#hakkimizda" data-target="#hakkimizda" class="nav">Hakkımızda</a></li>
+          <li><a href="#urunler" data-target="#urunler" class="nav">Kategoriler</a></li>
+          <li><a href="#hizmetler" data-target="#hizmetler" class="nav">Hizmetler</a></li>
+          <li><a href="#referanslar" data-target="#referanslar" class="nav">Referanslar</a></li>
+          <li><a href="#iletisim" data-target="#iletisim" class="nav">İletişim</a></li>
+        </ul>
+      </nav>
+
+      <!-- Sosyal Medya kutucuğu -->
+      <div class="social-menu">
+        <button class="social-trigger" id="socialBtn"><span>Sosyal</span></button>
+        <div class="social-popover" id="socialPopover" hidden>
+          <div class="social-grid">
+            <a class="social-link" href="https://instagram.com/marka" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#E1306C" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5z"/><path fill="#fff" d="M12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.5-8.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/></svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a class="social-link" href="https://linkedin.com/company/marka" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#0A66C2" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.3 2.5-2.7 5.1-2.7 5.5 0 6.5 3.6 6.5 8.2V24h-5v-7.7c0-1.8 0-4.1-2.5-4.1s-2.9 2-2.9 3.9V24H8z"/></svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://facebook.com/marka" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#1877F2" d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.667 4.533-4.667 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.49 0-1.953.925-1.953 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              <span class="sr-only">Facebook</span>
+            </a>
+            <a class="social-link" href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M.057 24l1.687-6.163A11.867 11.867 0 0111.99.02C18.594.02 24 5.427 24 12.02c0 6.594-5.406 12-12.01 12a11.95 11.95 0 01-6.116-1.688L.057 24z"/><path fill="#fff" d="M6.6 19.2l.4.2a10 10 0 004.95 1.33c5.55 0 10.05-4.5 10.05-10.05S17.5.6 11.95.6 1.9 5.1 1.9 10.65c0 1.75.45 3.4 1.24 4.85l.21.38-.83 3.06 4.08-.74zM8.7 7.6c-.2-.45-.41-.46-.6-.47h-.51c-.17 0-.45.07-.68.34-.23.27-.89.87-.89 2.12s.91 2.46 1.04 2.63c.14.18 1.78 2.83 4.33 3.85 2.14.84 2.58.76 3.04.71.46-.04 1.5-.61 1.71-1.2.21-.6.21-1.12.15-1.23-.06-.11-.23-.17-.49-.3-.26-.13-1.5-.74-1.73-.83-.23-.09-.4-.13-.57.13-.17.26-.66.83-.81 1.01-.15.18-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.26-.78-.66-1.31-1.47-1.46-1.73-.15-.26-.02-.4.11-.53.12-.12.26-.32.39-.48.13-.16.17-.27.26-.45.09-.18.04-.34-.02-.47-.06-.13-.56-1.41-.78-1.93z"/></svg>
+              <span class="sr-only">WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="menuBtn"><span></span><span></span><span></span></button>
+    </div>
+    <div class="container mobile" id="mobileMenu" hidden>
+      <a href="#anasayfa" data-target="#anasayfa" class="nav">Ana Sayfa</a>
+      <a href="#hakkimizda" data-target="#hakkimizda" class="nav">Hakkımızda</a>
+      <a href="#urunler" data-target="#urunler" class="nav">Kategoriler</a>
+      <a href="#hizmetler" data-target="#hizmetler" class="nav">Hizmetler</a>
+      <a href="#referanslar" data-target="#referanslar" class="nav">Referanslar</a>
+      <a href="#iletisim" data-target="#iletisim" class="nav">İletişim</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="anasayfa" class="container hero">
+    <!-- Background slider -->
+    <div class="slider" id="heroSlider"></div>
+
+    <!-- Foreground content -->
+    <div class="hero-content">
+      <span class="badge">Yeni nesil yüzey çözümleri</span>
+      <h1>Profesyonel boya ve kaplama uygulamaları</h1>
+      <p class="lead">İç ve dış cephe boyaları, ısı yalıtım sistemleri ve dekoratif kaplamalarda uzman ekibimizle yanınızdayız. Tek sayfa bu siteden tüm kategorilere erişin, iletişime geçin.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="cta" href="#urunler">Kategorileri Gör</a>
+        <a class="cta" style="background:#111827" href="#iletisim">Keşif Talep Et</a>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="heroDots"></div>
+  </section>
+
+  <!-- Hakkımızda (Anasayfa'dan sonra) -->
+  <section id="hakkimizda" class="section">
+    <div class="container">
+      <h2>Hakkımızda</h2>
+      <p class="section-lead"></p>
+      <div class="card">
+        <p>SOILTECH MÜHENDİSLİK SANAYİ VE TİCARET LİMİTED ŞİRKETİ, 
+
+15 yılı aşkın birikimiyle, çeşitli sektörlerin ihtiyaçlarına yanıt vererek kalite, güven ve çözüm odaklı bir yaklaşımla faaliyete başlamıştır. Bu köklü deneyim, bizi yenilikçi ve sürdürülebilir çözümler sunan bir mühendislik markası olma yoluna teşvik etmektedir.
+Atölyemizde ve saha uygulamalarımızda; müşteri beklentilerini en üst düzeyde karşılamak için özenle çalışmakta, her projede kaliteyi ön planda tutarak güvenilir çözümler sunmaktayız.
+Şirketimiz ISO 9001:2015 Kalite Yönetim Sistemi, ISO 14001:2015 Çevre Yönetim Sistemi, ISO 45001:2018 İş Sağlığı ve Güvenliği Yönetim Sistemi ile ISO 10002:2018 Müşteri Memnuniyeti Yönetim Sistemi sertifikalarına sahiptir. Bu belgeler doğrultusunda, ulusal ve uluslararası standartlara uygun bir şekilde faaliyetlerimizi sürdürmekteyiz. 
+SOILTECH olarak hedefimiz; ulusal ve uluslararası projelerde teknik mükemmelliyet, iş güvenliği, çevresel duyarlılık ve müşteri memnuniyetini temel alarak sektörde kalıcı bir değer yaratmaktır. Bu amaçla, uzman kadromuz ve modern ekipmanlarımızla, başta yüzey hazırlığı, kumlama ve boya uygulamaları olmak üzere birçok alanda hizmet sunmaktayız. 
+Vizyonumuz; sahip olduğumuz bilgi ve deneyimi sürekli geliştirerek, kaliteyi bir standart değil, bir kültür haline getirmek ve sektörde güvenilir bir çözüm ortağı olarak konumlanmaktır.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kategoriler / Ürünler -->
+  <section id="urunler" class="section">
+    <div class="container">
+      <h2>Kategoriler</h2>
+      <p class="section-lead">Öne çıkan ürün grupları. Başlık ve görselleri sizin içeriklerinize göre güncelleriz.</p>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1496302662116-35cc4f36df92?q=80&w=1200&auto=format&fit=crop" alt="İç cephe boyaları" />
+          <h3>İç Cephe Boyaları</h3>
+          <p>Silinebilir, kokusuz ve yüksek örtücülük.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1451933335233-0a52ba17a095?q=80&w=1200&auto=format&fit=crop" alt="Dış cephe sistemleri" />
+          <h3>Dış Cephe Sistemleri</h3>
+          <p>UV dayanımlı, uzun ömürlü çözümler.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1520975682031-d0082571b449?q=80&w=1200&auto=format&fit=crop" alt="Isı yalıtım" />
+          <h3>Isı Yalıtım (Mantolama)</h3>
+          <p>Enerji verimliliği ve konfor bir arada.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmetler / Neden biz -->
+  <section id="hizmetler" class="section">
+    <div class="container">
+      <h2>Hizmetler</h2>
+      <p class="section-lead">Keşif, renk danışmanlığı ve anahtar teslim uygulama.</p>
+      <div class="features">
+        <div class="feature"><strong>Ücretsiz Keşif</strong><span>Uzmanlarımız adresinizde ölçüm ve analiz yapar.</span></div>
+        <div class="feature"><strong>Renk Eşleştirme</strong><span>Mekânınıza uygun renk paletleri hazırlarız.</span></div>
+        <div class="feature"><strong>Garantili Uygulama</strong><span>Söz verdiğimiz tarihte teslim, yazılı garanti.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Referanslar -->
+  <section id="referanslar" class="section">
+    <div class="container">
+      <h2>Referanslar</h2>
+      <p class="section-lead">Çalıştığımız marka ve projelerden seçkiler.</p>
+      <div class="logos">
+        <img src="https://dummyimage.com/200x60/ffffff/999999.png&text=Logo+1" alt="Referans 1" />
+        <img src="https://dummyimage.com/200x60/ffffff/999999.png&text=Logo+2" alt="Referans 2" />
+        <img src="https://dummyimage.com/200x60/ffffff/999999.png&text=Logo+3" alt="Referans 3" />
+        <img src="https://dummyimage.com/200x60/ffffff/999999.png&text=Logo+4" alt="Referans 4" />
+        <img src="https://dummyimage.com/200x60/ffffff/999999.png&text=Logo+5" alt="Referans 5" />
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section id="iletisim" class="section">
+    <div class="container">
+      <h2>İletişim</h2>
+      <p class="section-lead">Formu doldurun, en kısa sürede dönüş yapalım.</p>
+      <div class="card">
+        <form name="contact" method="post" action="#">
+          <div>
+            <label for="ad">Ad Soyad</label>
+            <input id="ad" name="ad" placeholder="Adınız Soyadınız" required />
+          </div>
+          <div>
+            <label for="tel">Telefon</label>
+            <input id="tel" name="tel" type="tel" placeholder="05xx xxx xx xx" required />
+          </div>
+          <div class="full">
+            <label for="mesaj">Mesaj</label>
+            <textarea id="mesaj" name="mesaj" placeholder="Kısaca talebinizi yazın"></textarea>
+          </div>
+          <div class="full">
+            <button type="submit">Gönder</button>
+          </div>
+        </form>
+        <p style="margin-top:12px;color:#64748b">Alternatif: <a href="tel:+90XXXXXXXXXX">+90 XXX XXX XX XX</a> • <a href="mailto:info@ornek.com">info@ornek.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="yil"></span> Marka Adı. Tüm hakları saklıdır.</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="#">KVKK / Gizlilik</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Yıl
+    document.getElementById('yil').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', ()=>{
+      const isHidden = mobile.hasAttribute('hidden');
+      if(isHidden){ mobile.removeAttribute('hidden'); } else { mobile.setAttribute('hidden',''); }
+    });
+
+    // Smooth scroll with header offset and active link highlight
+    const links = document.querySelectorAll('a.nav');
+    const headerHeight = document.querySelector('header').offsetHeight + 10;
+
+    function scrollToTarget(target){
+      const el = document.querySelector(target);
+      if(!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({top:y, behavior:'smooth'});
+      if(!mobile.hasAttribute('hidden')) mobile.setAttribute('hidden','');
+    }
+
+    links.forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = a.getAttribute('data-target');
+        if(target){ e.preventDefault(); scrollToTarget(target); }
+      });
+    });
+
+    // IntersectionObserver to set active menu item
+    const sections = document.querySelectorAll('section');
+    const navAnchors = Array.from(document.querySelectorAll('nav a.nav'));
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = '#' + entry.target.id;
+          navAnchors.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===id));
+        }
+      });
+    },{root:null,rootMargin:'-60% 0px -35% 0px',threshold:0});
+
+    sections.forEach(s=>io.observe(s));
+
+    // Basic form handler (no backend) – prevent action
+    document.querySelector('form')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Teşekkürler! Talebiniz alındı. (Formu gerçek bir e-postaya bağlamak için bana bilgileri verin)');
+    });
+
+    // Sosyal menü aç/kapat + erişilebilirlik
+    const socialBtn = document.getElementById('socialBtn');
+    const socialPopover = document.getElementById('socialPopover');
+
+    function closeSocial(){
+      socialPopover.setAttribute('hidden','');
+    }
+
+    function toggleSocial(){
+      const isHidden = socialPopover.hasAttribute('hidden');
+      if(isHidden){ socialPopover.removeAttribute('hidden'); }
+      else { closeSocial(); }
+    }
+
+    socialBtn?.addEventListener('click', (e)=>{ e.stopPropagation(); toggleSocial(); });
+    document.addEventListener('click', (e)=>{ if(!socialPopover.hasAttribute('hidden')){ const inside = socialPopover.contains(e.target) || socialBtn.contains(e.target); if(!inside) closeSocial(); } });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !socialPopover.hasAttribute('hidden')) closeSocial(); });
+
+    // HERO slider – 10 görsel, fade geçiş, hoverda duraklatma
+    (function(){
+       const images = [
+  'img/bir.jpeg',
+  'img/iki.jpeg',
+  'img/üc.jpeg',
+  'img/dort.jpeg',
+  'img/bes.jpeg',
+  'img/alti.jpeg',
+  'img/yedi.jpeg'
+];
+
+
+
+      const root = document.getElementById('heroSlider');
+      const dotsWrap = document.getElementById('heroDots');
+      if(!root || !dotsWrap) return;
+
+      const slides = images.map((src, idx)=>{
+        const s = document.createElement('div');
+        s.className = 'slide' + (idx===0 ? ' active' : '');
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = src;
+        img.alt = 'Proje görseli ' + (idx+1);
+        s.appendChild(img);
+        root.appendChild(s);
+        return s;
+      });
+
+      const dots = images.map((_,i)=>{
+        const b = document.createElement('button');
+        b.setAttribute('aria-label','Slayt ' + (i+1));
+        if(i===0) b.classList.add('active');
+        b.addEventListener('click', ()=>go(i, true));
+        dotsWrap.appendChild(b);
+        return b;
+      });
+
+      let i = 0; let timer; const D = 4000;
+      function go(n, user=false){
+        slides[i].classList.remove('active');
+        dots[i].classList.remove('active');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('active');
+        dots[i].classList.add('active');
+        if(user){ reset(); }
+      }
+      function next(){ go(i+1); }
+      function reset(){ clearInterval(timer); timer = setInterval(next, D); }
+      root.addEventListener('mouseenter', ()=>clearInterval(timer));
+      root.addEventListener('mouseleave', reset);
+      reset();
+    })();
+  </script>
+</body>
+</html>
