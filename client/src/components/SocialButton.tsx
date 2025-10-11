@@ -31,19 +31,19 @@ export function SocialButton() {
   const socialLinks = [
     { 
       icon: Instagram, 
-      href: "https://instagram.com/soiltech", 
+      href: "https://www.instagram.com/soiltech_muhendislik?igsh=MWZzajA5bDl5dTdpaw==", 
       label: "Instagram",
       color: "hover:text-pink-600"
     },
     { 
       icon: Linkedin, 
-      href: "https://linkedin.com/company/soiltech", 
+      href: "https://www.linkedin.com/company/soiltech-m%C3%BChendislik/", 
       label: "LinkedIn",
       color: "hover:text-blue-600"
     },
     { 
       icon: Facebook, 
-      href: "https://facebook.com/soiltech", 
+      href: "https://www.facebook.com/share/1FzMuN9GmJ/?mibextid=wwXIfr", 
       label: "Facebook",
       color: "hover:text-blue-500"
     },
