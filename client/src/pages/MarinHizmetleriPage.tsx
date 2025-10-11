@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
-import { FixedSocialButtons } from "@/components/FixedSocialButtons";
 
 export default function MarinHizmetleriPage() {
   useEffect(() => {
@@ -15,7 +14,6 @@ export default function MarinHizmetleriPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <FixedSocialButtons />
       
       <main className="container mx-auto px-4 md:px-6 lg:px-8 py-8">
         <Link href="/">

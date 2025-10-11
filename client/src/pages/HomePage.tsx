@@ -8,7 +8,6 @@ import { ISOCertificatesSection } from "@/components/ISOCertificatesSection";
 import { ReferencesSection } from "@/components/ReferencesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
-import { FixedSocialButtons } from "@/components/FixedSocialButtons";
 
 import slide1 from "@assets/stock_images/modern_building_exte_4d91d828.jpg";
 import slide2 from "@assets/stock_images/professional_interio_31d5920b.jpg";
@@ -66,7 +65,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
-      <FixedSocialButtons />
       
       <main>
         <div id="anasayfa" className="scroll-mt-20">
