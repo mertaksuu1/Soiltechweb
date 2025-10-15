@@ -7,6 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
+import mainImage from "@assets/WhatsApp Image 2025-10-10 at 18.47.23 (1)_1760535575983.jpeg";
+import galleryImage1 from "@assets/WhatsApp Image 2025-10-10 at 18.47.19_1760535575979.jpeg";
+import galleryImage2 from "@assets/WhatsApp Image 2025-10-10 at 18.47.18 (1)_1760535575980.jpeg";
+import galleryImage3 from "@assets/WhatsApp Image 2025-10-10 at 18.47.20_1760535575981.jpeg";
+
 export default function EndustriyelHizmetlerPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +71,7 @@ export default function EndustriyelHizmetlerPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="space-y-4">
             <img
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop"
+              src={mainImage}
               alt="Endüstriyel Hizmetler"
               className="w-full h-80 object-cover rounded-lg shadow-lg"
               data-testid="image-main"
@@ -93,19 +98,19 @@ export default function EndustriyelHizmetlerPage() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           <img
-            src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage1}
             alt="Endüstriyel Tesis"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-1"
           />
           <img
-            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage2}
             alt="Üretim Hattı"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-2"
           />
           <img
-            src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage3}
             alt="İş Makineleri"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-3"

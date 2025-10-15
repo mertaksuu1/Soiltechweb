@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
+import mainImage from "@assets/WhatsApp Image 2025-10-10 at 18.47.24 (1)_1760535575984.jpeg";
+import galleryImage1 from "@assets/WhatsApp Image 2025-10-10 at 18.47.21_1760535575981.jpeg";
+import galleryImage2 from "@assets/WhatsApp Image 2025-10-10 at 18.47.24_1760535575976.jpeg";
+import galleryImage3 from "@assets/WhatsApp Image 2025-10-10 at 18.47.25_1760535575977.jpeg";
+
 export default function MarinHizmetleriPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +40,7 @@ export default function MarinHizmetleriPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="space-y-4">
             <img
-              src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=1200&auto=format&fit=crop"
+              src={mainImage}
               alt="Marin Hizmetleri"
               className="w-full h-80 object-cover rounded-lg shadow-lg"
               data-testid="image-main"
@@ -62,19 +67,19 @@ export default function MarinHizmetleriPage() {
 
         <div className="grid md:grid-cols-3 gap-6">
           <img
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage1}
             alt="Tekne Kaplama"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-1"
           />
           <img
-            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage2}
             alt="Yat Bakımı"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-2"
           />
           <img
-            src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage3}
             alt="Deniz Yapıları"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-3"

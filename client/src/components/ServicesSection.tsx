@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
+import serviceImage1 from "@assets/WhatsApp Image 2025-10-10 at 18.47.22_1760535575982.jpeg";
+import serviceImage2 from "@assets/WhatsApp Image 2025-10-10 at 18.47.23 (1)_1760535575983.jpeg";
+import serviceImage3 from "@assets/WhatsApp Image 2025-10-10 at 18.47.24 (1)_1760535575984.jpeg";
+
 interface ServiceCardProps {
   title: string;
   description: string;
@@ -48,19 +52,19 @@ export function ServicesSection() {
     {
       title: "Kumlama Boyama Atölyesi",
       description: "Modern atölyemizde profesyonel kumlama ve boyama hizmetleri sunuyoruz.",
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop",
+      image: serviceImage1,
       link: "/kumlama-boyama"
     },
     {
       title: "Endüstriyel Hizmetler",
       description: "Geniş kapsamlı endüstriyel yüzey işleme ve kaplama çözümleri.",
-      image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
+      image: serviceImage2,
       link: "/endustriyel-hizmetler"
     },
     {
       title: "Marin Hizmetleri",
       description: "Deniz araçları ve yapıları için özel koruma ve kaplama sistemleri.",
-      image: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=1200&auto=format&fit=crop",
+      image: serviceImage3,
       link: "/marin-hizmetleri"
     }
   ];

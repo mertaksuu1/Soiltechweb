@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
+import mainImage from "@assets/WhatsApp Image 2025-10-10 at 18.47.23_1760535575985.jpeg";
+import galleryImage1 from "@assets/WhatsApp Image 2025-10-10 at 18.47.24_1760535575976.jpeg";
+import galleryImage2 from "@assets/WhatsApp Image 2025-10-10 at 18.47.25_1760535575977.jpeg";
+import galleryImage3 from "@assets/WhatsApp Image 2025-10-10 at 17.48.10 (1)_1760535575978.jpeg";
+
 export default function KumlamaBoyamaPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +40,7 @@ export default function KumlamaBoyamaPage() {
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="space-y-4">
             <img
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop"
+              src={mainImage}
               alt="Kumlama Atölyesi"
               className="w-full h-80 object-cover rounded-lg shadow-lg"
               data-testid="image-main"
@@ -63,19 +68,19 @@ export default function KumlamaBoyamaPage() {
 
         <div className="grid md:grid-cols-3 gap-6">
           <img
-            src="https://images.unsplash.com/photo-1565008576549-57569a49371d?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage1}
             alt="Kumlama İşlemi"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-1"
           />
           <img
-            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage2}
             alt="Boya Uygulaması"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-2"
           />
           <img
-            src="https://images.unsplash.com/photo-1487957648902-0e9f96e8a6ea?q=80&w=800&auto=format&fit=crop"
+            src={galleryImage3}
             alt="Atölye Görünümü"
             className="w-full h-64 object-cover rounded-lg shadow-md"
             data-testid="image-gallery-3"

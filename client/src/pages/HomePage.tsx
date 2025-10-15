@@ -9,13 +9,13 @@ import { ReferencesSection } from "@/components/ReferencesSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
-import slide1 from "@assets/stock_images/modern_building_exte_4d91d828.jpg";
-import slide2 from "@assets/stock_images/professional_interio_31d5920b.jpg";
-import slide3 from "@assets/stock_images/thermal_insulation_i_fefab6df.jpg";
-import slide4 from "@assets/stock_images/modern_building_exte_32e322e8.jpg";
-import slide5 from "@assets/stock_images/professional_interio_abe70ae2.jpg";
-import slide6 from "@assets/stock_images/thermal_insulation_i_d9cfa691.jpg";
-import slide7 from "@assets/stock_images/modern_building_exte_bdc431b9.jpg";
+import slide1 from "@assets/WhatsApp Image 2025-10-10 at 18.47.24_1760535575976.jpeg";
+import slide2 from "@assets/WhatsApp Image 2025-10-10 at 18.47.25_1760535575977.jpeg";
+import slide3 from "@assets/WhatsApp Image 2025-10-10 at 17.48.10 (1)_1760535575978.jpeg";
+import slide4 from "@assets/WhatsApp Image 2025-10-10 at 18.47.19_1760535575979.jpeg";
+import slide5 from "@assets/WhatsApp Image 2025-10-10 at 18.47.18 (1)_1760535575980.jpeg";
+import slide6 from "@assets/WhatsApp Image 2025-10-10 at 18.47.20_1760535575981.jpeg";
+import slide7 from "@assets/WhatsApp Image 2025-10-10 at 18.47.21_1760535575981.jpeg";
 
 const sliderImages = [slide1, slide2, slide3, slide4, slide5, slide6, slide7];
 
